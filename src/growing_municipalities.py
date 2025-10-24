@@ -3,7 +3,8 @@
 import pandas as pd
 
 def growing_municipalities(df):
-    pass
+    growing = df[df["Population change from the previous year, %"] > 0]
+    return len(growing) / len(df)
 
 def main():
     df = pd.read_csv('src/municipal.tsv', sep='\t', index_col=0)
